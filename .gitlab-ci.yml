@@ -1,0 +1,22 @@
+image: docker
+
+stages:
+  - build
+  - push
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.com
+
+build:
+  stage: build
+  tags:
+    - docker
+  script:
+    - docker image build -t gitlab.com/$CI_PROJECT_PATH .
+
+push:
+  stage: push
+  tags:
+    - docker
+  script:
+    - docker image push dev.unicon.uz:4567/$CI_PROJECT_PATH/$CI_COMMIT_REF_NAME
