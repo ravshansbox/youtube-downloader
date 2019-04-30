@@ -6,7 +6,7 @@ RUN chmod a+rx /usr/local/bin/youtube-dl
 FROM alpine as node
 RUN apk add --no-cache nodejs
 
-FROM alpine as npm
+FROM node as npm
 RUN apk add --no-cache npm
 COPY .npmrc package.json ./
 RUN npm install --no-cache --no-package-lock --production
