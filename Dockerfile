@@ -12,7 +12,7 @@ COPY .npmrc package.json ./
 RUN npm install --no-cache --no-package-lock --production
 
 FROM node
-RUN apk add --no-cache python
+RUN apk add --no-cache ffmpeg python
 COPY --from=youtube-dl /usr/local/bin/youtube-dl /usr/local/bin/youtube-dl
 COPY --from=npm node_modules node_modules
 COPY ./src ./src
