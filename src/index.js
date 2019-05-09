@@ -10,13 +10,13 @@ const app = express();
 app.use('/', express.static(PUBLIC_FOLDER), serveIndex(PUBLIC_FOLDER));
 
 app.get('/download', (req, res) => {
-  const { url } = req.query;
+  const { id } = req.query;
   const { stderr, stdout } = child_process.spawn('youtube-dl', [
     '--format',
     'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best',
     '--output',
     `./${PUBLIC_FOLDER}/%(title)s.%(ext)s`,
-    url,
+    `https://www.youtube.com/watch?v=${id}`,
   ]);
   mergeStream(stderr, stdout).pipe(res);
 });
