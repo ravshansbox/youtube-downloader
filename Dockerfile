@@ -8,8 +8,8 @@ RUN apk add --no-cache nodejs
 
 FROM node as npm
 RUN apk add --no-cache npm
-COPY .npmrc package.json ./
-RUN npm install --no-cache --no-package-lock --production
+COPY package.json package-lock.json ./
+RUN npm install --no-cache --production
 
 FROM node
 RUN apk add --no-cache ffmpeg python
