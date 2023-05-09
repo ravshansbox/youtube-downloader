@@ -11,7 +11,7 @@ app.use('/', express.static(PUBLIC_FOLDER), serveIndex(PUBLIC_FOLDER));
 
 app.get('/download', (req, res) => {
   const { id } = req.query;
-  const { stderr, stdout } = child_process.spawn('youtube-dl', [
+  const { stderr, stdout } = child_process.spawn('yt-dlp', [
     '--format',
     'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best',
     '--output',

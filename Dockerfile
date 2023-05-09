@@ -1,7 +1,7 @@
-FROM alpine as youtube-dl
+FROM alpine as yt-dlp
 RUN apk add --no-cache curl
-RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-RUN chmod a+rx /usr/local/bin/youtube-dl
+RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+RUN chmod a+rx /usr/local/bin/yt-dlp
 
 FROM node:lts-alpine as npm
 RUN apk add --no-cache npm
@@ -10,7 +10,7 @@ RUN npm install --no-cache --production
 
 FROM node:lts-alpine
 RUN apk add --no-cache ffmpeg python3
-COPY --from=youtube-dl /usr/local/bin/youtube-dl /usr/local/bin/youtube-dl
+COPY --from=yt-dlp /usr/local/bin/yt-dlp /usr/local/bin/yt-dlp
 COPY --from=npm node_modules node_modules
 COPY ./src ./src
 RUN mkdir public
