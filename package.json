@@ -6,7 +6,7 @@
     "start": "nodemon src/index.js"
   },
   "dependencies": {
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "merge-stream": "^2.0.0",
     "serve-index": "^1.9.1"
   },
