@@ -1,7 +1,7 @@
-const child_process = require('child_process');
-const mergeStream = require('merge-stream');
-const express = require('express');
-const serveIndex = require('serve-index');
+import child_process from 'child_process';
+import mergeStream from 'merge-stream';
+import express from 'express';
+import serveIndex from 'serve-index';
 
 const PUBLIC_FOLDER = 'public';
 

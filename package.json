@@ -1,16 +1,11 @@
 {
   "name": "youtube-downloader",
-  "version": "0.0.1",
-  "private": true,
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "node --watch src/index.mjs"
   },
   "dependencies": {
-    "express": "^4.21.1",
+    "express": "^5.0.1",
     "merge-stream": "^2.0.0",
     "serve-index": "^1.9.1"
-  },
-  "devDependencies": {
-    "nodemon": "~2.0.20"
   }
 }
