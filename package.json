@@ -4,7 +4,7 @@
     "start": "node --watch src/index.mjs"
   },
   "dependencies": {
-    "express": "^5.0.1",
+    "express": "^5.1.0",
     "merge-stream": "^2.0.0",
     "serve-index": "^1.9.1"
   }
